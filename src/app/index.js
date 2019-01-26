@@ -1,7 +1,13 @@
+// @flow
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './views/App.jsx';
+import App from './views/app.jsx';
 
-window.onload = () => {
-  ReactDOM.render(<App />, document.getElementById('app'));
-};
+const root = document.querySelector('#app');
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (root) {
+    ReactDOM.render(<App />, root);
+  }
+});
