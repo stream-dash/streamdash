@@ -2,8 +2,9 @@
   "name": "@streamdash/streamdash",
   "version": "1.0.0",
   "description": "StreamDash application",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
+    "start": "electron -r @babel/register .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,15 @@
   "bugs": {
     "url": "https://github.com/stream-dash/streamdash/issues"
   },
-  "homepage": "https://github.com/stream-dash/streamdash#readme"
+  "homepage": "https://github.com/stream-dash/streamdash#readme",
+  "devDependencies": {
+    "electron": "^4.0.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1"
+  }
 }
