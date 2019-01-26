@@ -5,7 +5,8 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron -r @babel/register .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "flow && xo",
+    "test": "flow && xo && ava"
   },
   "repository": {
     "type": "git",
@@ -25,13 +26,80 @@
   },
   "homepage": "https://github.com/stream-dash/streamdash#readme",
   "devDependencies": {
-    "electron": "^4.0.2"
+    "@babel/polyfill": "^7.2.5",
+    "ava": "^1.1.0",
+    "babel-eslint": "^10.0.1",
+    "electron": "^4.0.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-xo": "^0.26.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flow-header": "^0.2.0",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "flow-bin": "^0.91.0",
+    "pre-commit": "^1.2.2",
+    "spectron": "^5.0.0",
+    "xo": "^0.24.0"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-react-jsx": "^6.24.1"
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "xo": {
+    "parser": "babel-eslint",
+    "space": true,
+    "extends": [
+      "plugin:flowtype/recommended",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "babel",
+      "flowtype",
+      "flow-header"
+    ],
+    "rules": {
+      "babel/semi": true,
+      "flow-header/flow-header": 2
+    },
+    "env": [
+      "browser",
+      "node"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "overrides": [
+      {
+        "files": "test/**/*",
+        "rules": {
+          "flow-header/flow-header": "off",
+          "import/no-unassigned-import": "off"
+        }
+      }
+    ]
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "require": [
+      "@babel/register",
+      "@babel/polyfill"
+    ]
   }
 }
