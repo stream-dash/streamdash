@@ -30,6 +30,8 @@
     "ava": "^1.1.0",
     "babel-eslint": "^10.0.1",
     "electron": "^4.0.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
     "eslint": "^5.12.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-xo": "^0.26.0",
@@ -85,12 +87,19 @@
       {
         "files": "test/**/*",
         "rules": {
-          "flow-header/flow-header": "off"
+          "flow-header/flow-header": "off",
+          "import/no-unassigned-import": "off"
         }
       }
     ]
   },
   "ava": {
-    "require": ["@babel/polyfill"]
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "require": [
+      "@babel/register",
+      "@babel/polyfill"
+    ]
   }
 }
