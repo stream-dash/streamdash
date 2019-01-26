@@ -1,0 +1,26 @@
+{
+  "name": "@streamdash/streamdash",
+  "version": "1.0.0",
+  "description": "StreamDash application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stream-dash/streamdash.git"
+  },
+  "keywords": [
+    "stream",
+    "obs",
+    "twitch",
+    "streaming",
+    "dashboard"
+  ],
+  "author": "Kolya Venturi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stream-dash/streamdash/issues"
+  },
+  "homepage": "https://github.com/stream-dash/streamdash#readme"
+}
