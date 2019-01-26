@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/stream-dash/streamdash#readme",
   "devDependencies": {
+    "@babel/polyfill": "^7.2.5",
     "ava": "^1.1.0",
     "babel-eslint": "^10.0.1",
     "electron": "^4.0.2",
@@ -79,6 +80,17 @@
       "react": {
         "version": "detect"
       }
-    }
+    },
+    "overrides": [
+      {
+        "files": "test/**/*",
+        "rules": {
+          "flow-header/flow-header": "off"
+        }
+      }
+    ]
+  },
+  "ava": {
+    "require": ["@babel/polyfill"]
   }
 }
